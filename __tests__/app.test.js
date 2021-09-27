@@ -60,4 +60,16 @@ describe('08_build-something routes', () => {
         });
       });
   });
+
+  it('should PATCH an affirmation by id', () => {
+    return request(app)
+      .patch('/api/v1/affirmations/1')
+      .send({ quote: 'Do not forget to enjoy the journey' })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quote: 'Do not forget to enjoy the journey',
+        });
+      });
+  });
 });
