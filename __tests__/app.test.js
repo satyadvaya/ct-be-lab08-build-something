@@ -48,4 +48,16 @@ describe('08_build-something routes', () => {
         ]);
       });
   });
+
+  it('should GET an affirmation by id', () => {
+    return request(app)
+      .get('/api/v1/affirmations/1')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quote:
+            'Your life is already a miracle of chance waiting for you to shape its destiny',
+        });
+      });
+  });
 });
