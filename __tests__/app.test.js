@@ -28,7 +28,6 @@ describe('08_build-something routes', () => {
       .post('/api/v1/affirmations')
       .send({ quote: 'You know more than you think' })
       .then((res) => {
-        console.log(res.body);
         expect(res.body).toEqual({
           id: '2',
           quote: expect.any(String),
