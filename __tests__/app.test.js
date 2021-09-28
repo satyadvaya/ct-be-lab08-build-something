@@ -30,7 +30,7 @@ describe('08_build-something routes', () => {
       .then((res) => {
         expect(res.body).toEqual({
           id: '2',
-          quote: 'You know more than you think',
+          quote: expect.any(String),
         });
       });
   });
@@ -52,6 +52,30 @@ describe('08_build-something routes', () => {
   it('should GET an affirmation by id', () => {
     return request(app)
       .get('/api/v1/affirmations/1')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quote:
+            'Your life is already a miracle of chance waiting for you to shape its destiny',
+        });
+      });
+  });
+
+  it('should PATCH an affirmation by id', () => {
+    return request(app)
+      .patch('/api/v1/affirmations/1')
+      .send({ quote: 'Do not forget to enjoy the journey' })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quote: 'Do not forget to enjoy the journey',
+        });
+      });
+  });
+
+  it('should DELETE an affirmation by id', () => {
+    return request(app)
+      .delete('/api/v1/affirmations/1')
       .then((res) => {
         expect(res.body).toEqual({
           id: '1',
