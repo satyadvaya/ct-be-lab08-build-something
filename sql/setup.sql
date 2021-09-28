@@ -8,6 +8,6 @@ CREATE TABLE affirmations (
 
 CREATE TABLE favorites (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  user VARCHAR(512) NOT NULL
+  username VARCHAR(512) NOT NULL,
   favorite_quote VARCHAR(512) NOT NULL
 );

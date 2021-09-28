@@ -17,7 +17,7 @@ describe('08_build-something user routes for favorite affirmations', () => {
 
   beforeEach(() => {
     return request(app).post('/api/v1/favorites').send({
-      user: 'Jack',
+      username: 'Jack',
       favoriteQuote:
         'Your life is already a miracle of chance waiting for you to shape its destiny',
     });
@@ -27,13 +27,13 @@ describe('08_build-something user routes for favorite affirmations', () => {
     return request(app)
       .post('/api/v1/favorites')
       .send({
-        user: 'Jack',
+        username: 'Jack',
         favoriteQuote: 'You know more than you think',
       })
       .then((res) => {
         expect(res.body).toEqual({
           id: '2',
-          user: 'Jack',
+          username: 'Jack',
           favoriteQuote: 'You know more than you think',
         });
       });
