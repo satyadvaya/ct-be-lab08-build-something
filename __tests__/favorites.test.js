@@ -38,4 +38,18 @@ describe('08_build-something user routes for favorite affirmations', () => {
         });
       });
   });
+
+  it('should GET all favorites', () => {
+    return request(app)
+      .get('/api/v1/favorites')
+      .then((res) => {
+        expect(res.body).toEqual([
+          {
+            id: '1',
+            quote:
+              'Your life is already a miracle of chance waiting for you to shape its destiny',
+          },
+        ]);
+      });
+  });
 });
