@@ -53,4 +53,17 @@ describe('08_build-something user routes for favorite affirmations', () => {
         ]);
       });
   });
+
+  it('should GET a favorite by id', () => {
+    return request(app)
+      .get('/api/v1/favorites/1')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          username: 'Jack',
+          favoriteQuote:
+            'Your life is already a miracle of chance waiting for you to shape its destiny',
+        });
+      });
+  });
 });
