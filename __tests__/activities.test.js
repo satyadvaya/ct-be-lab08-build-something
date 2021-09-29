@@ -63,4 +63,17 @@ describe('08_build-something user routes for self-care activities', () => {
         });
       });
   });
+
+  it('should PATCH an activity by id', () => {
+    return request(app)
+      .patch('/api/v1/activities/1')
+      .send({ exercise: 'slacklining' })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          exercise: 'slacklining',
+          dailyDuration: '30min',
+        });
+      });
+  });
 });
