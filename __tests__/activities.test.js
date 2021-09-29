@@ -37,4 +37,18 @@ describe('08_build-something user routes for self-care activities', () => {
         });
       });
   });
+
+  it('should GET all activities', () => {
+    return request(app)
+      .get('/api/v1/activities')
+      .then((res) => {
+        expect(res.body).toEqual([
+          {
+            id: '1',
+            exercise: 'parkour',
+            dailyDuration: '30min',
+          },
+        ]);
+      });
+  });
 });
