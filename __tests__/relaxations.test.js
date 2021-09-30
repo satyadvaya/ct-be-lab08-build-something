@@ -63,4 +63,17 @@ describe('08_build-something user routes for self-care relaxations', () => {
         });
       });
   });
+
+  it('should PATCH an relaxation by id', () => {
+    return request(app)
+      .patch('/api/v1/relaxations/1')
+      .send({ exercise: 'slacklining' })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          technique: 'yoga',
+          timing: 'morning',
+        });
+      });
+  });
 });
