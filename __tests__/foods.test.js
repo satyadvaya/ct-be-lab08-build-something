@@ -51,4 +51,16 @@ describe('08_build-something user routes for self-care foods', () => {
         ]);
       });
   });
+
+  it('should GET a food by id', () => {
+    return request(app)
+      .get('/api/v1/foods/1')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          plant: 'wheatgrass',
+          meal: 'breakfast',
+        });
+      });
+  });
 });
