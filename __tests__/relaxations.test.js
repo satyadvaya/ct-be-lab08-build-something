@@ -51,4 +51,16 @@ describe('08_build-something user routes for self-care relaxations', () => {
         ]);
       });
   });
+
+  it('should GET a relaxation by id', () => {
+    return request(app)
+      .get('/api/v1/relaxations/1')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          technique: 'meditation',
+          timing: 'morning',
+        });
+      });
+  });
 });
