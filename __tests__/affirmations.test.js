@@ -3,7 +3,6 @@ const twilio = require('twilio');
 const setup = require('../data/setup.js');
 const request = require('supertest');
 const app = require('../lib/app.js');
-const Affirmation = require('../lib/models/Affirmation.js');
 
 jest.mock('twilio', () => () => ({
   messages: {
