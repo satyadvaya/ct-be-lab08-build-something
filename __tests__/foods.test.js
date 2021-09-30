@@ -63,4 +63,17 @@ describe('08_build-something user routes for self-care foods', () => {
         });
       });
   });
+
+  it('should PATCH a food by id', () => {
+    return request(app)
+      .patch('/api/v1/foods/1')
+      .send({ plant: 'blueberries' })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          plant: 'blueberries',
+          meal: 'breakfast',
+        });
+      });
+  });
 });
