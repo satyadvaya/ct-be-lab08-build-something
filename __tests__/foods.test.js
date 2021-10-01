@@ -76,4 +76,16 @@ describe('08_build-something user routes for self-care foods', () => {
         });
       });
   });
+
+  it('should DELETE a food by id', () => {
+    return request(app)
+      .delete('/api/v1/foods/1')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          plant: 'wheatgrass',
+          meal: 'breakfast',
+        });
+      });
+  });
 });
